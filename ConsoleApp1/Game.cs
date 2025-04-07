@@ -12,6 +12,7 @@ namespace ConsoleApp1
         // private Dictionary<SceneType>
         private static Dictionary<string, BaseScene> sceneDic;
         private static BaseScene curScene;
+        public static string prevSceneName; 
         private static Player player;
 
         public static Player Player { get { return player; } }
@@ -39,7 +40,12 @@ namespace ConsoleApp1
         }
         public static void ChangeScene(string sceneName)
         {
+            prevSceneName = curScene.name;
+
+            curScene.Exit();
             curScene = sceneDic[sceneName];
+            curScene.Enter();
+
         }
 
         // 게임의 초기 설정
@@ -58,7 +64,8 @@ namespace ConsoleApp1
             sceneDic = new Dictionary<string, BaseScene>();
             sceneDic.Add("Title", new TitleScene());
             sceneDic.Add("Town", new TownScene());
-            sceneDic.Add("Field", new FieldScene());
+            sceneDic.Add("NormalField", new NormalFieldScene());
+            sceneDic.Add("ForestField", new ForestFieldScene());
 
             curScene = sceneDic["Title"];
             

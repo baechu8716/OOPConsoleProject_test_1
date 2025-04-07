@@ -8,6 +8,10 @@ namespace ConsoleApp1.Scenes
 {
     public class TownScene : BaseScene
     {
+        public TownScene()
+        {
+            name = "Town";
+        }
         private ConsoleKey input;
         public override void Render()
         {
@@ -33,11 +37,7 @@ namespace ConsoleApp1.Scenes
             {
                 case ConsoleKey.D1:
                     Util.PressAnyKey("마을 밖으로 나갑니다.");
-                    Game.ChangeScene("Field");
-                    break;
-                case ConsoleKey.D2:
-                    Util.PressAnyKey("테스트 03 씬으로 이동합니다.");
-                    Game.ChangeScene("Test03");
+                    Game.ChangeScene("NormalField");
                     break;
             }
         }

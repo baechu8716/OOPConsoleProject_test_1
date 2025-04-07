@@ -9,6 +9,7 @@ namespace ConsoleApp1
     //public enum SceneType { Title, Town, Castle}
     public abstract class BaseScene
     {
+        public string name;
         public abstract void Render();
 
         public abstract void Input();
@@ -16,5 +17,8 @@ namespace ConsoleApp1
         public abstract void Update();
 
         public abstract void Result();
+
+        public virtual void Enter() { }
+        public virtual void Exit() { }
     }
 }
