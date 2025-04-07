@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.GameObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -13,14 +14,16 @@ namespace ConsoleApp1.Scenes
         private string[] mapData;
         private bool[,] map;
 
+        private List<GameObject>  gameObjects;
+
         public FieldScene()
         {
             mapData = new string[]
             {
                 "########",
-                "#      #",
-                "#      #",
-                "#      #",
+                "#  #   #",
+                "#  #   #",
+                "## #   #",
                 "#      #",
                 "########"
             };
@@ -34,12 +37,20 @@ namespace ConsoleApp1.Scenes
                 }
             }
 
-            Game.Player.position = new Vector2(1, 1);
+            gameObjects = new List<GameObject>();
+            gameObjects.Add(new Place("Town", ConsoleColor.Yellow, 'T',new Vector2(1, 1)));
+            gameObjects.Add(new Place("ForestField", ConsoleColor.Red, 'F', new Vector2(5, 1)));
 
+            Game.Player.position = new Vector2(2, 3);
+            Game.Player.map = map;
         }
         public override void Render()
         {
             PrintMap();
+            foreach (GameObject go in gameObjects)
+            {
+                go.Print();
+            }
             Game.Player.Print();
         }
 
@@ -54,7 +65,13 @@ namespace ConsoleApp1.Scenes
         }
         public override void Result()
         {
-            
+            foreach(GameObject go in gameObjects)
+            {
+                if (Game.Player.position == go.position)
+                {
+                    go.Interact(Game.Player);
+                }
+            }
         }
 
         public void PrintMap()

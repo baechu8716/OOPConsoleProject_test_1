@@ -16,5 +16,15 @@ namespace ConsoleApp1
             this.x = x;
             this.y = y;
         }
+
+        public static bool operator == (Vector2 right, Vector2 left)
+        {
+            return right.x == left.x && right.y == left.y;
+        }
+
+        public static bool operator != (Vector2 left, Vector2 right)
+        {
+            return right.x != left.x || right.y != left.y;
+        }
     }
 }
