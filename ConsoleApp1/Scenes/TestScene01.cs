@@ -11,10 +11,10 @@ namespace ConsoleApp1.Scenes
         private ConsoleKey input;
         public override void Render()
         {
-            Console.WriteLine("테스트 씬입니다.");
+            Console.WriteLine("테스트 01씬입니다.");
             Console.WriteLine();
             Console.WriteLine("1. 테스트 02 씬으로 이동");
-            Console.WriteLine("1. 테스트 03 씬으로 이동");
+            Console.WriteLine("2. 테스트 03 씬으로 이동");
             Console.Write("선택지를 입력하세요 : ");
         }
 

@@ -28,11 +28,15 @@ namespace ConsoleApp1
                 Console.WriteLine();
                 curScene.Update();
                 Console.WriteLine();
-                curScene.Render();
+                curScene.Result();
                 Console.WriteLine();
             }
 
             End();
+        }
+        public static void ChangeScene(string sceneName)
+        {
+            curScene = sceneDic[sceneName];
         }
 
         // 게임의 초기 설정
@@ -57,10 +61,7 @@ namespace ConsoleApp1
 
         }
 
-        public static void ChangeScene(string sceneName)
-        {
-            curScene = sceneDic[sceneName];
-        }
+        
     }
 }
 
