@@ -12,6 +12,9 @@ namespace ConsoleApp1
         // private Dictionary<SceneType>
         private static Dictionary<string, BaseScene> sceneDic;
         private static BaseScene curScene;
+        private static Player player;
+
+        public static Player Player { get { return player; } }
 
         public static bool gameOver;  
 
@@ -42,17 +45,23 @@ namespace ConsoleApp1
         // 게임의 초기 설정
         private static void Start() 
         {
+            // 커서 비활성화
+            Console.CursorVisible = false;
+
             // 게임 오버가 false
             gameOver = false;
+
+            // 플레이어 설정
+            player = new Player();
 
             // 씬 설정 
             sceneDic = new Dictionary<string, BaseScene>();
             sceneDic.Add("Title", new TitleScene());
-            sceneDic.Add("Test01", new TestScene01());
-            sceneDic.Add("Test02", new TestScene02());
-            sceneDic.Add("Test03", new TestScene03());
+            sceneDic.Add("Town", new TownScene());
+            sceneDic.Add("Field", new FieldScene());
 
             curScene = sceneDic["Title"];
+            
         }
 
         // 게임의 마무리 작업
