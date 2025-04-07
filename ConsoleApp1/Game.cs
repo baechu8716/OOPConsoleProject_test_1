@@ -13,20 +13,23 @@ namespace ConsoleApp1
         private static Dictionary<string, BaseScene> sceneDic;
         private static BaseScene curScene;
 
-        public static bool gameOver;
-
-        
+        public static bool gameOver;  
 
         public static void Run()
         {
             Start();
-            while(gameOver == true)
+
+            while(gameOver == false)
             {
                 Console.Clear();
                 curScene.Render();
+                Console.WriteLine();
                 curScene.Input();
+                Console.WriteLine();
                 curScene.Update();
+                Console.WriteLine();
                 curScene.Render();
+                Console.WriteLine();
             }
 
             End();
@@ -41,6 +44,9 @@ namespace ConsoleApp1
             // 씬 설정 
             sceneDic = new Dictionary<string, BaseScene>();
             sceneDic.Add("Title", new TitleScene());
+            sceneDic.Add("Test01", new TestScene01());
+            sceneDic.Add("Test02", new TestScene02());
+            sceneDic.Add("Test03", new TestScene03());
 
             curScene = sceneDic["Title"];
         }
@@ -50,5 +56,11 @@ namespace ConsoleApp1
         {
 
         }
+
+        public static void ChangeScene(string sceneName)
+        {
+            curScene = sceneDic[sceneName];
+        }
     }
 }
+

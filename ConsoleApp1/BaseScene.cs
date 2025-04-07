@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Scenes
+namespace ConsoleApp1
 {
     //public enum SceneType { Title, Town, Castle}
     public abstract class BaseScene

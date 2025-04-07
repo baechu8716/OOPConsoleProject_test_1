@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp1.Scenes
+﻿namespace ConsoleApp1.Scenes
 {
     public class TitleScene : BaseScene
     {
@@ -20,7 +14,7 @@ namespace ConsoleApp1.Scenes
         public override void Input()
         {
             Console.ReadKey(true);
-        }     
+        }
 
         public override void Update()
         {
@@ -28,7 +22,7 @@ namespace ConsoleApp1.Scenes
         }
         public override void Result()
         {
-
+            Game.ChangeScene("Test01");
         }
     }
 }
