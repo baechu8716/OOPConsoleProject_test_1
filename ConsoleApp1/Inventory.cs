@@ -66,7 +66,7 @@ namespace ConsoleApp1
                         UseConfirm();
                         break;
                     case "DropConfirm":
-                        DropMenu();
+                        DropConfirm();
                         break;
                     default:
                         break;
@@ -102,6 +102,7 @@ namespace ConsoleApp1
         public void UseMenu()
         {
             PrintAll();
+
             Console.WriteLine("사용할 아이템을 선택해주세요.");
             Console.WriteLine("0. 뒤로가기");
 
@@ -165,6 +166,7 @@ namespace ConsoleApp1
                     selectItem.Use();
                     Util.PressAnyKey($"{selectItem.name}을/를 사용했습니다.");
                     Remove(selectItem);
+                    stack.Pop();
                     break;
                 case ConsoleKey.N:
                     stack.Pop();
@@ -185,6 +187,7 @@ namespace ConsoleApp1
                 case ConsoleKey.Y:
                     Util.PressAnyKey($"{selectItem.name}을/를 버렸습니다.");
                     Remove(selectItem);
+                    stack.Pop();
                     break;
                 case ConsoleKey.N:
                     stack.Pop();
