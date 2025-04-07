@@ -1,16 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
     public class Player
-    {
+    {  
         public Vector2 position;
         public bool[,] map;
+        public Inventory inventory;
 
+        private int curHP;
+        public int CurHp { get { return curHP; } }
+        private int maxHP;
+        public int MaxHp { get { return maxHP; } }
+
+        public Player()
+        {
+            inventory = new Inventory();
+            maxHP = 100;
+            curHP = maxHP;
+        }
+        
+        public void Heal(int amoumt)
+        {
+            curHP += amoumt;
+            if (curHP > maxHP)
+            {
+                curHP = maxHP;
+            }
+        }
         public void Print()
         {
             Console.SetCursorPosition(position.x, position.y);

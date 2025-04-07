@@ -1,4 +1,5 @@
 ﻿using ConsoleApp1.GameObjects;
+using ConsoleApp1.GameObjects.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace ConsoleApp1.Scenes
             gameObjects = new List<GameObject>();
             gameObjects.Add(new Place("Town", ConsoleColor.Yellow, 'T', new Vector2(1, 1)));
             gameObjects.Add(new Place("ForestField", ConsoleColor.Red, 'F', new Vector2(6, 1)));
+            gameObjects.Add(new Potion(new Vector2(1, 4)));
 
             //Game.Player.position = new Vector2(2, 3);
             //Game.Player.map = map;

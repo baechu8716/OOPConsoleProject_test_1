@@ -10,7 +10,7 @@ namespace ConsoleApp1.GameObjects
     {
         private string scene;
 
-        public Place(string scene, ConsoleColor color, char symbol, Vector2 position) : base(color, symbol, position)
+        public Place(string scene, ConsoleColor color, char symbol, Vector2 position) : base(color, symbol, position, false)
         {
             this.scene = scene;
         }
