@@ -36,7 +36,7 @@ namespace ConsoleApp1.Scenes
 
         public override void Update()
         {
-            Game.Player.Move(input);
+            Game.Player.Action(input);
         }
         public override void Result()
         {
@@ -75,3 +75,4 @@ namespace ConsoleApp1.Scenes
         }
     }
 }
+

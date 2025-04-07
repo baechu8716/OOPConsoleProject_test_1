@@ -8,14 +8,23 @@ namespace ConsoleApp1.Scenes
 {
     public class TownScene : BaseScene
     {
+        private ConsoleKey input;
+        private bool firstEncount;
         public TownScene()
         {
             name = "Town";
+            firstEncount = true;
         }
-        private ConsoleKey input;
+        
         public override void Render()
         {
             Console.WriteLine("장소 : 초보자 마을");
+            if (firstEncount)
+            {
+                Console.WriteLine("저희 마을에 오신것을 환영합니다");
+                firstEncount = false;
+            }
+            
             Console.WriteLine("활기찬 마을이다.");
             Console.WriteLine();
             Console.WriteLine("1. 필드로 나간다.");

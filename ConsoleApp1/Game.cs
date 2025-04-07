@@ -27,7 +27,6 @@ namespace ConsoleApp1
             {
                 Console.Clear();
                 curScene.Render();
-                Console.WriteLine();
                 curScene.Input();
                 Console.WriteLine();
                 curScene.Update();
